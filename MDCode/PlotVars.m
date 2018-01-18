@@ -36,6 +36,7 @@ hold on
 subplot(3, 2, 1), plot(x(Pty1in), y(Pty1in), 'go', 'markers',...
     MarkerSize,'MarkerFaceColor', 'g');
 subplot(3, 2, 1),quiver(x, y, Fx * ScaleF, Fy * ScaleF, 0, 'm', 'linewidth', 2);
+
 hold off
 axis(Limits);
 title('Atoms and Forces')
