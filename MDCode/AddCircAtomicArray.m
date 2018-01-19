@@ -10,19 +10,19 @@ else
     Mass = Mass1;
 end
 
-L = (2.3*rad - 1) * AtomSpacing;
-W = (2*rad - 1) * AtomSpacing;
+L = (2*rad - 1) * AtomSpacing;
+W = (1.9*rad - 1) * AtomSpacing;
 
-xp(1, :) = linspace(-L/2, L/2, 2.3*rad);
-yp(1, :) = linspace(-W/2, W/2, 2*rad);
+xp(1, :) = linspace(-L/2, L/2, 2*rad);
+yp(1, :) = linspace(-W/2, W/2, 1.9*rad);
 
 numAtoms = 0;
 for i = 1:2*rad
-    for j = 1:2*rad
+    for j = 1:1.9*rad
         if xp(i)^2 + yp(j)^2 <= (rad*AtomSpacing)^2
             numAtoms = numAtoms+1;
             x(nAtoms + numAtoms) = xp(i);
-            y(nAtoms  + numAtoms) = yp(j);
+            y(nAtoms + numAtoms) = yp(j);
         else
             i
             j

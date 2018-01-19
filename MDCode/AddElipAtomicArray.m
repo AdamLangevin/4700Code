@@ -16,12 +16,12 @@ W = (2*a - 1) * AtomSpacing;
 xp(1,:) = linspace(-L/2, L/2, 2*b);
 yp(1,:) = linspace(-W/2, W/2, 2*a);
 
+r =a*b/sqrt(a^2 + b^2);
 
-
-numAtoms =0;
+numAtoms = 0;
 for i = 1:2*b
     for j = 1:2*a
-        if xp(i)^2/a^2 + yp(j)^2/b^2 <= (a*b*AtomSpacing)^2
+        if (xp(i)^2) + (yp(j)^2) <= (r*AtomSpacing)^2
             numAtoms  = numAtoms + 1;
             x(nAtoms + numAtoms) = xp(i);
             y(nAtoms + numAtoms) = yp(j);
@@ -32,15 +32,26 @@ for i = 1:2*b
     end
 end
 
+
 x(nAtoms + 1:nAtoms + numAtoms) = x(nAtoms + 1:nAtoms + numAtoms) + (rand(1, numAtoms) - 0.5) * AtomSpacing * InitDist + X0;
 y(nAtoms + 1:nAtoms + numAtoms) = y(nAtoms + 1:nAtoms + numAtoms) + (rand(1, numAtoms) - 0.5) * AtomSpacing * InitDist + Y0;
 
-%this is with Temp = 0
-Vx(nAtoms + 1:nAtoms + numAtoms) = 0;
-Vy(nAtoms + 1:nAtoms + numAtoms) = 0;
+AtomType(nAtoms + 1:nAtoms + numAtoms) = Type; %missed
+
+if Temp == 0
+    Vx(nAtoms + 1:nAtoms + numAtoms) = 0;
+    Vy(nAtoms + 1:nAtoms + numAtoms) = 0;
+else
+   std = sqrt(C.kb * Temp / Mass);
+   
+   Vx(nAtoms + 1:nAtoms + numAtoms) = std * randn(1, numAtoms);
+   Vy(nAtoms + 1:nAtoms + numAtoms) = std * randn(1, numAtoms);
+end
 
 Vx(nAtoms + 1:nAtoms + numAtoms) = Vx(nAtoms + 1:nAtoms + numAtoms) - mean(Vx(nAtoms + 1:nAtoms + numAtoms)) + VX0;
 Vy(nAtoms + 1:nAtoms + numAtoms) = Vy(nAtoms + 1:nAtoms + numAtoms) - mean(Vy(nAtoms + 1:nAtoms + numAtoms)) + VY0;
+
+nAtoms = nAtoms + numAtoms; %missed
 
 end
 

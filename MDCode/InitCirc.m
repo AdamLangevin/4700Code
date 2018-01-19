@@ -16,7 +16,7 @@ PhiCutoff = 3 * AtomSpacing * 1.1;
 T = 30;
 
 %AddCircAtomicArray(10, 0, 0, 0, 0, 0, T, 0);
-AddElipAtomicArray(10, 8, 0, 0, 0, 0, 0, T, 0);
+AddElipAtomicArray(10, 6, 0, 0, 0, 0, 0, T, 0);
 
 Size = 20 * AtomSpacing;
 Limits = [-Size +Size -Size +Size]; % square is good
