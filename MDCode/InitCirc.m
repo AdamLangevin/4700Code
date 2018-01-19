@@ -1,6 +1,6 @@
 doPlot = 1;
 dt = 15e-15;
-TStop = 1000 * dt;
+TStop = 2000 * dt;
 InitDist = 0.0;
 Method = 'VE'; % VE -- verlot; FD -- Forward Difference
 

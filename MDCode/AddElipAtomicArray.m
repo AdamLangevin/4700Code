@@ -36,7 +36,7 @@ end
 x(nAtoms + 1:nAtoms + numAtoms) = x(nAtoms + 1:nAtoms + numAtoms) + (rand(1, numAtoms) - 0.5) * AtomSpacing * InitDist + X0;
 y(nAtoms + 1:nAtoms + numAtoms) = y(nAtoms + 1:nAtoms + numAtoms) + (rand(1, numAtoms) - 0.5) * AtomSpacing * InitDist + Y0;
 
-AtomType(nAtoms + 1:nAtoms + numAtoms) = Type; %missed
+AtomType(nAtoms + 1:nAtoms + numAtoms) = Type; %missed, atom type for all atoms in the array
 
 if Temp == 0
     Vx(nAtoms + 1:nAtoms + numAtoms) = 0;
@@ -51,7 +51,7 @@ end
 Vx(nAtoms + 1:nAtoms + numAtoms) = Vx(nAtoms + 1:nAtoms + numAtoms) - mean(Vx(nAtoms + 1:nAtoms + numAtoms)) + VX0;
 Vy(nAtoms + 1:nAtoms + numAtoms) = Vy(nAtoms + 1:nAtoms + numAtoms) - mean(Vy(nAtoms + 1:nAtoms + numAtoms)) + VY0;
 
-nAtoms = nAtoms + numAtoms; %missed
+nAtoms = nAtoms + numAtoms; %missed, the actual number of atoms in the array
 
 end
 

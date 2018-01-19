@@ -22,7 +22,7 @@ C.eps_0 = 8.854187817e-12;          % vacuum permittivity
 C.mu_0 = 1.2566370614e-6;           % vacuum permeability
 C.c = 299792458;                    % speed of light
 C.g = 9.80665;                      % metres (32.1740 ft) per s²
-C.am = 1.66053892e-27;
+C.am = 1.66053892e-27;              % standard atomic mass ?
 
 MaxX = 0;
 MinX = 0;
@@ -38,7 +38,7 @@ PlotFile = 'image.gif';
 PlotSize = [100, 100, 1049, 895];
 ScaleV = 0;
 ScaleF = 0;
-PlotPosOnly = 0;
+PlotPosOnly = 1;
 
 % Simulation initiallization
 % InitThree
@@ -164,7 +164,6 @@ while t < TStop
     c = c + 1;
     t  = t + dt;
     time(c) = t;
-
 
     PhiTot(c) = sum(Phi)/2;
     V2_0 = (Vx(Pty0in).*Vx(Pty0in)+Vy(Pty0in).*Vy(Pty0in));
