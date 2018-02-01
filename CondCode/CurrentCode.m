@@ -62,7 +62,7 @@ end
 
 if doPlot
     imwrite(im, map, 'imagefile.gif', 'DelayTime', 0.2, 'LoopCount', inf);
-    figure
+    figure(1);
 end
 
 subplot(4, 1, 1), bar(Res(1, :))
